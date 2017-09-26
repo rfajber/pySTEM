@@ -41,8 +41,14 @@ class STEM:
             iPB=iPA+np.shape(Plev)[0]
         if Tlev is None:
             Tlev=self.T
+
+        iPA=iPA[0]
+        iLA=iLA[0]
+        iPB=iPB[0]
+        iLB=iLB[0]
+
         #resize the variables to the same size as the input data, whatever that is
-        #get the right subset of data to use 
+        #get the right subset of data to use
         vm=self.vm[iPA:iPB,iLA:iLB]
         om=self.om[iPA:iPB,iLA:iLB]
         vo=self.vo[iPA:iPB,iLA:iLB]
@@ -84,6 +90,7 @@ class STEM:
         else:
             self.MM=MM
             self.ME=ME
+            self.MT=MM+ME
 
     def calc_S(self,M,Tlev=None):
         if Tlev is None:
@@ -109,6 +116,7 @@ class STEM:
         else:
             self.SM=SM
             self.SE=SE
+            self.ST=SM+SE
         
     def calc_H(self,M,Tlev=None):
         if Tlev is None:
@@ -134,6 +142,7 @@ class STEM:
         else:
             self.HM=HM
             self.HE=HE
+            self.HT=HM+HE
         
     ################################# Sensitivities
 
